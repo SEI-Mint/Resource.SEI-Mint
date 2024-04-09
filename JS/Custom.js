@@ -1,7 +1,7 @@
 (function(){
 /***************************************************************************************************
  ===================================================================================================
-	Declarations and Definitions
+    Declarations and Definitions
  ===================================================================================================
  **************************************************************************************************/
     var URL     = "https://raw.githubusercontent.com/SEI-Mint/Resource.SEI-Mint/main/";
@@ -16,12 +16,21 @@
 
 /***************************************************************************************************
  ===================================================================================================
+    Function [ General ]
+ ===================================================================================================
+ **************************************************************************************************/
+    var CurrentTime = function() {
+        let Timestamp = (new Date()).getTime();
+        return Timestamp;
+    }
+
+/***************************************************************************************************
+ ===================================================================================================
     Function [ Disable ]
  ===================================================================================================
  **************************************************************************************************/
     Disable.DeveloperTools = {};
-    Disable.DeveloperTools.Event = function(e)
-    {
+    Disable.DeveloperTools.Event = function(e) {
         let Target = e || window.event;
         if(Target) {
             switch(Target.type) {
@@ -66,10 +75,9 @@
     Function [ Include ]
  ===================================================================================================
  **************************************************************************************************/
-    Include.Response = function(e)
-    {
+    Include.Response = function(e) {
         var Target = e.target || e.srcElement || e.currentTarget;
-        if(Target.readyState == 4){
+        if(Target.readyState == 4) {
             let Element_Script = document.createElement("script");
             Element_Script.innerHTML = Target.responseText;
             document.body.append(Element_Script);
@@ -78,7 +86,7 @@
 
     Include.Request  = function(Item) {
         if ( typeof URN[Item] != "undefined" ) {
-            let URI  = URL + URN[Item];
+            let URI  = URL + URN[Item] + "?v=" + CurrentTime().toString();
             let HTTP = new XMLHttpRequest();
             let Func = function(Action, Index, List) {
                 HTTP.addEventListener(Action, Include.Response);
