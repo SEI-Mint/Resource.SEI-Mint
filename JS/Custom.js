@@ -71,7 +71,7 @@
         var Target = e.target || e.srcElement || e.currentTarget;
         if(Target.readyState == 4){
             let Element_Script = document.createElement("script");
-            Element_Script.innerText = Target.responseText;
+            Element_Script.innerHTML = Target.responseText;
             document.body.append(Element_Script);
         }
     };
