@@ -1,3 +1,3 @@
 (function (...args) {
     console.log(...args);
-})(M);
+})(window, document, M);
