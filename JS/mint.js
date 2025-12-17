@@ -47,5 +47,6 @@
 
     if (M) {
         M.DeveloperTools.disable();
+        M.require('JS.expansion.import');
     }
 })(window, document, M?.constructor?.prototype);
