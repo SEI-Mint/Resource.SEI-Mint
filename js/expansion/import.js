@@ -1,5 +1,5 @@
 (function (window, document, M) {
     if (M) {
-        M.require('JS.expansion.string');
+        M.require('js.expansion.string');
     }
 })(window, document, M);
